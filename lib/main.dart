@@ -100,7 +100,11 @@ class _HomepageState extends State<Homepage> {
         child: Column(
           children: <Widget>[
             Text(
-              hakimi.na
+              hakimi.naMe,
+              style: TextStyle(
+                fontSize: 15,
+                
+              ),
             )
           ],
         ),
@@ -119,7 +123,7 @@ class _HomepageState extends State<Homepage> {
         ),
         body: Column(
           children: data.map((hakimi) =>
-             Text("${hakimi.naMe} - ${hakimi.iD}")).toList(),
+             hakimiCard(hakimi)).toList(),
         ),
       ),
     );
