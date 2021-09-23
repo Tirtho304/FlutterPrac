@@ -74,33 +74,54 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: Homepage(),
+      
     );
   }
 }
-class HomePage extends StatefulWidget {
-  const HomePage({ Key? key }) : super(key: key);
+
+class Homepage extends StatefulWidget {
+  const Homepage({ Key? key }) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomepageState createState() => _HomepageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  List <hakimi> ar = [
-   hakimi("Tirtho", "192-15-13304")
+class _HomepageState extends State<Homepage> {
+  List<hakimi> data = [
+    hakimi("Shirdartho Bhowmick Tirtho", "192-15-13304"),
   ];
+  Widget hakimiCard(hakimi)
+  {
+    return Card(
+      margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          children: <Widget>[
+            Text(
+              hakimi.na
+            )
+          ],
+        ),
+      
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(title: Text("Signin"),
-        centerTitle: true,
+        appBar: AppBar(
+          leading: Icon(Icons.data_saver_off),
+          title: Text("HomePage"),
+          centerTitle: true,
         ),
         body: Column(
-          children: ar.map((hakimi) => Text("${hakimi.Name}-${hakimi.id}")).toList(),
+          children: data.map((hakimi) =>
+             Text("${hakimi.naMe} - ${hakimi.iD}")).toList(),
         ),
       ),
-      
     );
   }
 }
